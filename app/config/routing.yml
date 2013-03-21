@@ -1,0 +1,4 @@
+rimed_blog:
+    resource: "@RimedBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+

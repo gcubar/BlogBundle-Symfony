@@ -1,0 +1,7 @@
+parameters:
+#    rimed_blog.example.class: Rimed\BlogBundle\Example
+
+services:
+#    rimed_blog.example:
+#        class: %rimed_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
