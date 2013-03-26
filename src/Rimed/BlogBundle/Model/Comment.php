@@ -6,6 +6,8 @@ use Rimed\BlogBundle\Model\CommentInterface;
 
 abstract class Comment implements CommentInterface
 {
+    protected $id;
+    
     protected $name;
 
     protected $email;

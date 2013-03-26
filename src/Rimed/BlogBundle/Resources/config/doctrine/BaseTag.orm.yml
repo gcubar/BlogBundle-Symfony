@@ -1,0 +1,27 @@
+Rimed\BlogBundle\Entity\BaseTag:
+    type: entity
+    table: blog_tag
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+        enabled:
+            type: boolean
+            default: false
+        slug:
+            type: string
+
+        createdAt: 
+            column: created_at
+            type: datetime
+        updatedAt:
+            column: updated_at
+            type: datetime
+
+    lifecycleCallbacks:
+        prePersist: [ prePersist ]
+        preUpdate: [ preUpdate ]

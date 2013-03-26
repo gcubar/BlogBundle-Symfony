@@ -7,6 +7,8 @@ use Rimed\BlogBundle\Model\PostInterface;
 
 abstract class Tag implements TagInterface
 {
+    protected $id;
+    
     protected $name;
 
     protected $slug;

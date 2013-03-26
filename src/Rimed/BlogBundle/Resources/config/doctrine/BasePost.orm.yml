@@ -1,0 +1,80 @@
+Rimed\BlogBundle\Entity\BasePost:
+    type: entity
+    table: blog_post
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    manyToOne:
+        category:
+            targetEntity: BaseCategory
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+
+    manyToMany:
+        tags:
+            targetEntity: BaseTag
+            joinTable:
+                name: blog_post_tag
+                joinColumns:
+                    post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    tag_id:
+                        referencedColumnName: id
+
+    fields:
+        title:
+            type: string
+        abstract:
+            type: text
+        content:
+            type: text
+        rawContent:
+            column: raw_content
+            type: text
+        contentFormatter:
+            column: content_formatter
+            type: string
+
+        enabled:
+            type: boolean
+
+        slug:
+            type: string
+
+        publicationDateStart:
+            column: publication_date_start
+            type: datetime
+            nullable: true
+
+        commentsEnabled:
+            column: comments_enabled
+            type: boolean
+            default: true
+        commentsCloseAt:
+            column: comments_close_at
+            type: datetime
+            nullable: true
+        commentsDefaultStatus:
+            column: comments_default_status
+            type: integer
+            nullable: false
+        commentsCount:
+            column: comments_count
+            type: integer
+            nullable: true
+            default: 0
+
+        createdAt:
+            column: created_at
+            type: datetime
+        updatedAt:
+            column: updated_at
+            type: datetime
+
+    lifecycleCallbacks:
+        prePersist: [ prePersist ]
+        preUpdate: [ preUpdate ]

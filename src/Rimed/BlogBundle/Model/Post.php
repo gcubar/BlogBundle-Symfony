@@ -9,6 +9,8 @@ use Rimed\BlogBundle\Model\CategoryInterface;
 
 abstract class Post implements PostInterface
 {
+    protected $id;
+    
     protected $title;
 
     protected $slug;

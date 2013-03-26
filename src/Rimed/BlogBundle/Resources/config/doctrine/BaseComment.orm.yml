@@ -1,0 +1,41 @@
+Rimed\BlogBundle\Entity\BaseComment:
+    type: entity
+    table: blog_comment
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    manyToOne:
+        post:
+            targetEntity: BasePost
+            joinColumn:
+                name: post_id
+                referencedColumnName: id
+    
+    fields:
+        name:
+            type: string
+            nullable: true
+        url:
+            type: string
+            nullable: true
+        email:
+            type: string
+            nullable: true
+        message:
+            type: text
+        status:
+            type: integer
+            default: false
+
+        createdAt:
+            column: created_at
+            type: datetime
+        updatedAt:
+            column: updated_at
+            type: datetime
+
+    lifecycleCallbacks:
+        prePersist: [ prePersist ]
+        preUpdate: [ preUpdate ]

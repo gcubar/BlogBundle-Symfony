@@ -8,6 +8,8 @@ use Rimed\BlogBundle\Model\Tag;
 
 abstract class Category implements CategoryInterface
 {
+    protected $id;
+    
     protected $name;
 
     protected $slug;
