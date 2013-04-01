@@ -19,10 +19,6 @@ abstract class Post implements PostInterface
 
     protected $content;
 
-    protected $rawContent;
-
-    protected $contentFormatter;
-
     protected $tags;
 
     protected $comments;
@@ -413,37 +409,5 @@ abstract class Post implements PostInterface
     public function getCategory()
     {
         return $this->category;
-    }
-
-    /**
-     * @param $contentFormatter
-     */
-    public function setContentFormatter($contentFormatter)
-    {
-        $this->contentFormatter = $contentFormatter;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getContentFormatter()
-    {
-        return $this->contentFormatter;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setRawContent($rawContent)
-    {
-        $this->rawContent = $rawContent;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getRawContent()
-    {
-        return $this->rawContent;
     }
 }

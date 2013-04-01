@@ -32,12 +32,6 @@ Rimed\BlogBundle\Entity\BasePost:
             type: text
         content:
             type: text
-        rawContent:
-            column: raw_content
-            type: text
-        contentFormatter:
-            column: content_formatter
-            type: string
 
         enabled:
             type: boolean

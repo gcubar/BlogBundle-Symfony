@@ -11,7 +11,7 @@ class PostType extends AbstractType
     {
         $builder->add('title', 'text', array('label' => 'Título:'));
         $builder->add('abstract', 'textarea', array('label' => 'Resumen:'));
-        $builder->add('rawContent', 'textarea', array('label' => 'Contenido:'));
+        $builder->add('content', 'textarea', array('label' => 'Contenido:'));
         //$builder->add('tags');
         $builder->add('enabled', 'checkbox', array('label' => 'Habilitar:'));
         $builder->add('publicationDateStart', 'datetime', array('label' => 'Fecha de inicio de publicación:'));

@@ -28,6 +28,8 @@ class AdminPostController extends Controller
         $post->setPublicationDateStart(new \DateTime('now'));
         $post->setUpdatedAt(new \DateTime('now'));
         $post->setEnabled(true);
+        $post->setCommentsDefaultStatus(0);
+        
         //TODO: pensar cómo inicializar este valor
         //$post->setCommentsCloseAt(new \DateTime('now')); 
 
@@ -54,12 +56,12 @@ class AdminPostController extends Controller
         ));
     }
     
-        /*
     public function editAction($id)
     {
         
     }
     
+        /*
     public function showAction($id)
     {
         
