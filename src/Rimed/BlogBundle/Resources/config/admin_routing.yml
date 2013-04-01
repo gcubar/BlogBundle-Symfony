@@ -1,0 +1,19 @@
+blog_admin_index:
+    pattern:  /
+    defaults: { _controller: RimedBlogBundle:Admin\Admin:index }
+
+blog_admin_post:
+    prefix:  /post
+    resource: "@RimedBlogBundle/Resources/config/admin_post_routing.yml"
+
+blog_admin_comment:
+    prefix:  /comment
+    resource: "@RimedBlogBundle/Resources/config/admin_comment_routing.yml"
+
+blog_admin_category:
+    prefix:  /category
+    resource: "@RimedBlogBundle/Resources/config/admin_category_routing.yml"
+
+blog_adming_tag:
+    prefix:  /tag
+    resource: "@RimedBlogBundle/Resources/config/admin_tag_routing.yml"

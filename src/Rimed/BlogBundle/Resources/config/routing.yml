@@ -2,6 +2,12 @@ blog_homepage:
     pattern:  /
     defaults: { _controller: RimedBlogBundle:Post:home }
 
-blog_admin:
-    pattern:  /admin
-    defaults: { _controller: RimedBlogBundle:Admin:post }
+blog_admin_login:
+    pattern:  /login
+    defaults: { _controller: RimedBlobBundle:Usuario:login }
+
+blog_admin_check:
+    pattern:  /check
+
+blog_admin_logout:
+    pattern:  /logout

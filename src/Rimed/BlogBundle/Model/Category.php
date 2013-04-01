@@ -27,6 +27,14 @@ abstract class Category implements CategoryInterface
     protected $updatedAt;
 
     /**
+     * {@inheritdoc}
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set name
      *
      * @param string $name

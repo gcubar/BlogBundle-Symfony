@@ -57,6 +57,10 @@ abstract class Post implements PostInterface
         $this->setPublicationDateStart(new \DateTime);
     }
 
+    public function getId() {
+        return $this->id;
+    }
+    
     /**
      * {@inheritdoc}
      */

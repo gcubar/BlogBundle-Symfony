@@ -1,1 +1,8 @@
-Holaaaa ... ADMIN página de prueba
+{% extends 'RimedBlogBundle::layout.html.twig' %}
+
+{% block body %}
+<a href="{{ path('blog_admin_post_index') }}">[Publicaciones]</a>
+<a href="{{ path('blog_admin_category_index') }}">[Categorías]</a>
+<a href="{{ path('blog_admin_tag_index') }}">[Etiquetas]</a>
+<a href="{{ path('blog_admin_comment_index') }}">[Comentarios]</a>
+{% endblock %}

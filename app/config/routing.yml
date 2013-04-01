@@ -1,4 +1,7 @@
-blog:
-    resource: "@RimedBlogBundle/Resources/config/routing.yml"
+_blog_common:
     prefix:   /
+    resource: "@RimedBlogBundle/Resources/config/routing.yml"
 
+_blog_admin:
+    prefix:   /admin
+    resource: "@RimedBlogBundle/Resources/config/admin_routing.yml"

@@ -4,7 +4,7 @@ namespace Rimed\BlogBundle\Entity;
 
 use Rimed\BlogBundle\Model\Post as ModelPost;
 
-abstract class BasePost extends ModelPost
+class BasePost extends ModelPost
 {
     /**
      * {@inheritdoc}

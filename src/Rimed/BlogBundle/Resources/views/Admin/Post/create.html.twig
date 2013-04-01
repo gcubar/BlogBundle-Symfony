@@ -1,0 +1,11 @@
+{% extends "RimedBlogBundle::layout.html.twig" %}
+
+{% block title %}Crear una nueva publicación{% endblock %}
+
+{% block content %}
+<form action="{{ path('blog_admin_post_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" value="Guardar" />
+</form>
+{% endblock %}

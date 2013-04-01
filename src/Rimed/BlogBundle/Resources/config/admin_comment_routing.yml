@@ -1,0 +1,15 @@
+blog_admin_comment_index:
+    pattern:  /
+    defaults: { _controller: FrameworkBundle:Redirect:urlRedirect, path: /admin/comment/list, permanent: true }
+
+blog_admin_comment_list:
+    pattern:  /list
+    defaults: { _controller: RimedBlogBundle:Admin:list }
+
+blog_admin_comment_create:
+    pattern:  /create
+    defaults: { _controller: RimedBlogBundle:Admin:create }
+
+blog_admin_comment_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: RimedBlogBundle:Admin:edit }

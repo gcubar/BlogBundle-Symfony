@@ -24,6 +24,14 @@ abstract class Tag implements TagInterface
     /**
      * {@inheritdoc}
      */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setName($name)
     {
         $this->name = $name;

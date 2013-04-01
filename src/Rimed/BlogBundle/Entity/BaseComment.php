@@ -4,7 +4,7 @@ namespace Rimed\BlogBundle\Entity;
 
 use Rimed\BlogBundle\Model\Comment as ModelComment;
 
-abstract class BaseComment extends ModelComment
+class BaseComment extends ModelComment
 {
     public function prePersist()
     {

@@ -5,6 +5,13 @@ namespace Rimed\BlogBundle\Model;
 interface TagInterface
 {
     /**
+     * Get id
+     *
+     * @return $id
+     */
+    public function getId();
+    
+    /**
      * @param $name
      *
      * @return mixed

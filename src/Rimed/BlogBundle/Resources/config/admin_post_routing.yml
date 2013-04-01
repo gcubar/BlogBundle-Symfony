@@ -1,0 +1,19 @@
+blog_admin_post_index:
+    pattern:  /
+    defaults: { _controller: FrameworkBundle:Redirect:urlRedirect, path: /admin/post/list, permanent: true }
+
+blog_admin_post_list:
+    pattern:  /list
+    defaults: { _controller: RimedBlogBundle:Admin\AdminPost:list }
+
+blog_admin_post_create:
+    pattern:  /create
+    defaults: { _controller: RimedBlogBundle:Admin\AdminPost:create }
+
+blog_admin_post_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: RimedBlogBundle:Admin\AdminPost:edit }
+
+blog_admin_post_show:
+    pattern:  /show/{id}
+    defaults: { _controller: RimedBlogBundle:Admin\AdminPost:show }

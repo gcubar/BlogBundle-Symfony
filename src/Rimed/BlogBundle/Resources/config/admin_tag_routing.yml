@@ -1,0 +1,15 @@
+blog_admin_tag_index:
+    pattern:  /
+    defaults: { _controller: FrameworkBundle:Redirect:urlRedirect, path: /admin/tag/list, permanent: true }
+
+blog_admin_tag_list:
+    pattern:  /list
+    defaults: { _controller: RimedBlogBundle:Admin:list }
+
+blog_admin_tag_create:
+    pattern:  /create
+    defaults: { _controller: RimedBlogBundle:Admin:create }
+
+blog_admin_tag_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: RimedBlogBundle:Admin:edit }

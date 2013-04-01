@@ -1,0 +1,15 @@
+blog_admin_category_index:
+    pattern:  /
+    defaults: { _controller: FrameworkBundle:Redirect:urlRedirect, path: /admin/category/list, permanent: true }
+
+blog_admin_category_list:
+    pattern:  /list
+    defaults: { _controller: RimedBlogBundle:Admin:list }
+
+blog_admin_category_create:
+    pattern:  /create
+    defaults: { _controller: RimedBlogBundle:Admin:create }
+
+blog_admin_category_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: RimedBlogBundle:Admin:edit }

@@ -4,7 +4,7 @@ namespace Rimed\BlogBundle\Entity;
 
 use Rimed\BlogBundle\Model\Tag as ModelTag;
 
-abstract class BaseTag extends ModelTag
+class BaseTag extends ModelTag
 {
     public function prePersist()
     {
