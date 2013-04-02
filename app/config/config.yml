@@ -26,6 +26,7 @@ twig:
     strict_variables: %kernel.debug%
     globals:
         boolean: { 0: 'No', 1: 'Sí'}
+        comments_default_status: {0: 'Válido', 1: 'Inválido', 2: 'Moderado'}
 
 # Assetic Configuration
 assetic:

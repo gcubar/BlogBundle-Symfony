@@ -39,6 +39,7 @@ Rimed\BlogBundle\Entity\BasePost:
 
         enabled:
             type: boolean
+            default: true
 
         slug:
             type: string

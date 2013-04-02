@@ -6,7 +6,7 @@
 <form action="{{ path('blog_admin_post_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
 
-    <input type="submit" value="Guardar" />
+    <input type="submit" value="Crear publicación" />
 </form>
-<a href="{{ path('blog_admin_post_index') }}">Cancelar</a>
+<a href="{{ path('blog_admin_post_index') }}">Volver al listado</a>
 {% endblock %}

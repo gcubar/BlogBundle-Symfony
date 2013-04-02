@@ -15,8 +15,6 @@ class AdminPostController extends Controller
 
         $container = $manager->getRepository('RimedBlogBundle:BasePost')->findAll();
         
-        //ladybug_dump($container);
-        
         return $this->render('RimedBlogBundle:Admin\Post:list.html.twig', array(
             'publicaciones' => $container
         ));
@@ -71,13 +69,40 @@ class AdminPostController extends Controller
     
     public function editAction($id)
     {
+        $request = $this->getRequest();
+        $manager = $this->getDoctrine()->getEntityManager();
+        $post = $manager->find('RimedBlogBundle:BasePost', $id);
         
+        if ($post == null)
+        {
+            throw new NotFoundHttpException('No existe la publicación que se quiere modificar');
+        }
+
+        $form = $this->get('form.factory')->create(new PostType());
+        $form->setData($post);
+
+        if ($request->getMethod() == 'POST')
+        {
+            $form->bindRequest($request);
+
+            if ($form->isValid()) {
+                $manager->persist($post);
+                $manager->flush();
+
+                return $this->redirect($this->generateUrl('blog_admin_post_list'));
+            }
+        }
+
+        return $this->render('RimedBlogBundle:Admin\Post:edit.html.twig', array(
+            'form' => $form->createView(),
+            'post' => $post
+        ));
     }
     
-        /*
+    /*
     public function showAction($id)
     {
         
     }
-         */
+    */
 }

@@ -9,16 +9,23 @@ class PostType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder->add('enabled', 'checkbox', array('label' => 'Habilitado:'));
         $builder->add('title', 'text', array('label' => 'Título:'));
+        //TODO:
+        //$builder->add('categories');
         $builder->add('abstract', 'textarea', array('label' => 'Resumen:'));
         $builder->add('content', 'textarea', array('label' => 'Contenido:'));
+        //TODO:
         //$builder->add('tags');
-        $builder->add('enabled', 'checkbox', array('label' => 'Habilitar:'));
         $builder->add('publicationDateStart', 'datetime', array('label' => 'Fecha de inicio de publicación:'));
-        /*
-        $builder->add('idioma', 'choice', array(
-            'choices' => array('es' => 'Español', 'en' => 'Inglés')
+        $builder->add('commentsEnabled', 'checkbox', array('label' => 'Comentarios habilitados:'));
+        $builder->add('commentsCloseAt', 'datetime', array('label' => 'Fecha de cierre de los comentarios:'));
+        $builder->add('commentsDefaultStatus', 'choice', array(
+            'label' => 'Estado por defecto para los comentarios',
+            'choices' => array(0 => 'Válido', 1 => 'Inválido', 2 => 'Moderado')
         ));
+        
+        /*
         $builder->add('ponente', 'entity', array(
             'class'         => 'Rimed\\BlogBundle\\Entity\\BasePost',
             'query_builder' => function ($repositorio) {

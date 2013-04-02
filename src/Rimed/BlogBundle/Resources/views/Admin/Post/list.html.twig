@@ -3,7 +3,11 @@
 {% block title %}Listado de publicaciones{% endblock %}
 
 {% block content %}
-<table>
+
+<a href="{{ path('blog_admin_post_create') }}">Crear nueva publicación</a>
+<a href="{{ path('blog_admin_index') }}">Regresar a la administración</a>
+
+<table border="1">
     <thead>
         <tr>
             <th><input type="checkbox"></th>
@@ -12,40 +16,36 @@
             <th>Etiquetas</th>
             <th>Comentarios activos</th>
             <th>Cantidad de comentarios</th>
+            <th>Fecha de publicación</th>
         </tr>
     </thead>
 
     <tbody>
-        {# {{ publicaciones | ladybug_dump }} #}
-        
         {% for publicacion in publicaciones %}
+            
         <tr>
-            {# {{ publicacion | ladybug_dump }}
-            {{ publicacion.title | ladybug_dump }} #}
             <td>{{ loop.index }}<input type="checkbox"></td>
             <td><a href="{{ path('blog_admin_post_edit', {'id': publicacion.id}) }}">{{ publicacion.title }}</a></td>
-            <td>{{ publicacion.category }}</td>
+            <td>{{ publicacion.categories | length }}</td>
             <td>{{ publicacion.tags | length }}</td>
             <td>{{ boolean[publicacion.commentsEnabled] }}</td>
             <td>{{ publicacion.commentsCount }}</td>
+            <td>{{ publicacion.publicationDateStart | date('d/m/Y') }}</td>
+            
+
             {#
-            <td>{{ ponencia.fecha | date('d/m/Y') }} {{ ponencia.hora | date('H:i') }} </td>
             <td><a href="{{ path('admin_ponencia_edit', { 'id': ponencia.id }) }}">{{ ponencia.titulo }}</a></td>
-            <td>{{ idiomas[ponencia.idioma] }}</td>
-            <td>{{ ponencia.usuarios | length }}</td>
             <td>
                 <a href="{{ path('admin_ponencia_apuntados', { 'id': ponencia.id }) }}">Ver apuntados</a>
                 <a href="{{ path('admin_ponencia_delete', { 'id': ponencia.id }) }}">Borrar</a>
             </td>
             #}
         </tr>
+        
         {% else %}
-        <tr>
-            <td colspan="5">No existe ninguna publicación</td>
-        </tr>
+            <br>No existe ninguna publicación!!!<br><br>
         {% endfor %}
     </tbody>
 </table>
-<a href="{{ path('blog_admin_post_create') }}">Crear nueva publicación</a>
-<a href="{{ path('blog_admin_index') }}">Regresar a la administración</a>
+
 {% endblock %}
