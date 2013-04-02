@@ -18,8 +18,6 @@ abstract class Category implements CategoryInterface
 
     protected $description;
 
-    protected $count = 0;
-
     protected $posts;
 
     protected $createdAt;
@@ -35,9 +33,7 @@ abstract class Category implements CategoryInterface
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
+     * {@inheritdoc}
      */
     public function setName($name)
     {
@@ -47,9 +43,7 @@ abstract class Category implements CategoryInterface
     }
 
     /**
-     * Get name
-     *
-     * @return string $name
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -57,9 +51,7 @@ abstract class Category implements CategoryInterface
     }
 
     /**
-     * Set enabled
-     *
-     * @param boolean $enabled
+     * {@inheritdoc}
      */
     public function setEnabled($enabled)
     {
@@ -67,9 +59,7 @@ abstract class Category implements CategoryInterface
     }
 
     /**
-     * Get enabled
-     *
-     * @return boolean $enabled
+     * {@inheritdoc}
      */
     public function getEnabled()
     {
@@ -77,9 +67,7 @@ abstract class Category implements CategoryInterface
     }
 
     /**
-     * Set slug
-     *
-     * @param integer $slug
+     * {@inheritdoc}
      */
     public function setSlug($slug)
     {
@@ -87,9 +75,7 @@ abstract class Category implements CategoryInterface
     }
 
     /**
-     * Get slug
-     *
-     * @return integer $slug
+     * {@inheritdoc}
      */
     public function getSlug()
     {
@@ -117,29 +103,7 @@ abstract class Category implements CategoryInterface
     }
 
     /**
-     * Set count
-     *
-     * @param integer $count
-     */
-    public function setCount($count)
-    {
-        $this->count = $count;
-    }
-
-    /**
-     * Get count
-     *
-     * @return integer $count
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    /**
-     * Add posts
-     *
-     * @param \Rimed\BlogBundle\Model\PostInterface $posts
+     * {@inheritdoc}
      */
     public function addPosts(PostInterface $posts)
     {
@@ -147,9 +111,7 @@ abstract class Category implements CategoryInterface
     }
 
     /**
-     * Get posts
-     *
-     * @return \Doctrine\Common\Collections\Collection $posts
+     * {@inheritdoc}
      */
     public function getPosts()
     {

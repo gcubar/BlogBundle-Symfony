@@ -68,20 +68,6 @@ interface CategoryInterface
     public function getDescription();
 
     /**
-     * Set count
-     *
-     * @param integer $count
-     */
-    public function setCount($count);
-
-    /**
-     * Get count
-     *
-     * @return integer $count
-     */
-    public function getCount();
-
-    /**
      * Add posts
      *
      * @param \Rimed\BlogBundle\Model\PostInterface $posts
@@ -91,7 +77,7 @@ interface CategoryInterface
     /**
      * Get posts
      *
-     * @return \Doctrine\Common\Collections\Collection $posts
+     * @return array $posts
      */
     public function getPosts();
 }

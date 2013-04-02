@@ -21,6 +21,8 @@ abstract class Post implements PostInterface
 
     protected $tags;
 
+    protected $categories;
+
     protected $comments;
 
     protected $enabled;
@@ -40,10 +42,6 @@ abstract class Post implements PostInterface
     protected $commentsCount = 0;
 
     protected $author;
-
-    protected $image;
-
-    protected $category;
 
     /**
      * {@inheritdoc}
@@ -398,16 +396,24 @@ abstract class Post implements PostInterface
     /**
      * {@inheritdoc}
      */
-    public function setCategory(CategoryInterface $category = null)
+    public function addCategories(CategoryInterface $categories)
     {
-        $this->category = $category;
+        $this->categories[] = $categories;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getCategory()
+    public function getCategories()
     {
-        return $this->category;
+        return $this->categories;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
     }
 }

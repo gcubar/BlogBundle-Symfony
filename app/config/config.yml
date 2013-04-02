@@ -24,6 +24,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        boolean: { 0: 'No', 1: 'Sí'}
 
 # Assetic Configuration
 assetic:

@@ -13,8 +13,12 @@ class AdminPostController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
 
+        $container = $manager->getRepository('RimedBlogBundle:BasePost')->findAll();
+        
+        //ladybug_dump($container);
+        
         return $this->render('RimedBlogBundle:Admin\Post:list.html.twig', array(
-            'publicaciones' => $manager->getRepository('RimedBlogBundle:BasePost')->findAll()
+            'publicaciones' => $container
         ));
     }
     
@@ -28,6 +32,15 @@ class AdminPostController extends Controller
         $post->setPublicationDateStart(new \DateTime('now'));
         $post->setUpdatedAt(new \DateTime('now'));
         $post->setEnabled(true);
+        
+        /**
+         * Estado por defecto de los comentarios:
+         * 
+         * valores:
+         *      0 : moderado
+         *      1 : inválido
+         *      2 : válido
+         */
         $post->setCommentsDefaultStatus(0);
         
         //TODO: pensar cómo inicializar este valor

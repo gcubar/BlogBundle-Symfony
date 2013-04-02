@@ -18,9 +18,6 @@ Rimed\BlogBundle\Entity\BaseCategory:
         description:
             type: string
             nullable: true
-        count:         
-            type: integer
-            default: 0
 
         createdAt:
             column: created_at

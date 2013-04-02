@@ -13,13 +13,13 @@ abstract class Tag implements TagInterface
 
     protected $slug;
 
-    protected $createdAt;
-
-    protected $updatedAt;
-
     protected $enabled;
 
     protected $posts;
+
+    protected $createdAt;
+
+    protected $updatedAt;
 
     /**
      * {@inheritdoc}

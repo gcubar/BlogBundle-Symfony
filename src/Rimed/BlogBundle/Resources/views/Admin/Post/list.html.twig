@@ -8,7 +8,7 @@
         <tr>
             <th><input type="checkbox"></th>
             <th>Título</th>
-            <th>Categoría</th>
+            <th>Categorías</th>
             <th>Etiquetas</th>
             <th>Comentarios activos</th>
             <th>Cantidad de comentarios</th>
@@ -16,11 +16,18 @@
     </thead>
 
     <tbody>
+        {# {{ publicaciones | ladybug_dump }} #}
+        
         {% for publicacion in publicaciones %}
         <tr>
-            <td><input type="checkbox"></td>
-            <td>publicacion.title</td>
-            <td></td>
+            {# {{ publicacion | ladybug_dump }}
+            {{ publicacion.title | ladybug_dump }} #}
+            <td>{{ loop.index }}<input type="checkbox"></td>
+            <td><a href="{{ path('blog_admin_post_edit', {'id': publicacion.id}) }}">{{ publicacion.title }}</a></td>
+            <td>{{ publicacion.category }}</td>
+            <td>{{ publicacion.tags | length }}</td>
+            <td>{{ boolean[publicacion.commentsEnabled] }}</td>
+            <td>{{ publicacion.commentsCount }}</td>
             {#
             <td>{{ ponencia.fecha | date('d/m/Y') }} {{ ponencia.hora | date('H:i') }} </td>
             <td><a href="{{ path('admin_ponencia_edit', { 'id': ponencia.id }) }}">{{ ponencia.titulo }}</a></td>

@@ -6,13 +6,6 @@ Rimed\BlogBundle\Entity\BasePost:
             type: integer
             generator: { strategy: AUTO }
 
-    manyToOne:
-        category:
-            targetEntity: BaseCategory
-            joinColumn:
-                name: category_id
-                referencedColumnName: id
-
     manyToMany:
         tags:
             targetEntity: BaseTag
@@ -23,6 +16,17 @@ Rimed\BlogBundle\Entity\BasePost:
                         referencedColumnName: id
                 inverseJoinColumns:
                     tag_id:
+                        referencedColumnName: id
+
+        categories:
+            targetEntity: BaseCategory
+            joinTable:
+                name: blog_post_category
+                joinColumns:
+                    post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    category_id:
                         referencedColumnName: id
 
     fields:
@@ -42,7 +46,7 @@ Rimed\BlogBundle\Entity\BasePost:
         publicationDateStart:
             column: publication_date_start
             type: datetime
-            nullable: true
+            nullable: false
 
         commentsEnabled:
             column: comments_enabled
@@ -55,7 +59,8 @@ Rimed\BlogBundle\Entity\BasePost:
         commentsDefaultStatus:
             column: comments_default_status
             type: integer
-            nullable: false
+            nullable: true
+            default: 0
         commentsCount:
             column: comments_count
             type: integer

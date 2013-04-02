@@ -3,6 +3,7 @@
 namespace Rimed\BlogBundle\Model;
 
 use Rimed\BlogBundle\Model\CategoryInterface;
+use Rimed\BlogBundle\Model\TagInterface;
 
 interface PostInterface
 {
@@ -258,14 +259,23 @@ interface PostInterface
     public function getAuthor();
 
     /**
-     * @return \Rimed\BlogBundle\Model\CategoryInterface
+     * Add categories
+     *
+     * @param \Rimed\BlogBundle\Model\CategoryInterface $categories
      */
-    public function getCategory();
+    public function addCategories(CategoryInterface $categories);
 
     /**
-     * @param CategoryInterface $category
+     * Get categories
      *
-     * @return void
+     * @return array $categories
      */
-    public function setCategory(CategoryInterface $category = null);
+    public function getCategories();
+
+    /**
+     * @param $categories
+     *
+     * @return mixed
+     */
+    public function setCategories($categories);
 }
