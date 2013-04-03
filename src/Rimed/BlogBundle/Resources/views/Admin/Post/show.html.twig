@@ -1,0 +1,14 @@
+{% extends "RimedBlogBundle::layout.html.twig" %}
+
+{% block title %}Vista previa{% endblock %}
+
+{% block content %}
+<h2>{{ post.title }}</h2>
+Fecha de creación: {{ post.createdAt | date('d/m/Y') }}<br/>
+Fecha de actualización: {{ post.updatedAt | date('d/m/Y') }}<br/>
+<h3>Contenido:</h3>
+{{ post.content }}
+<br/><br/>
+Comentarios habilitados: {{ boolean[post.commentsEnabled] }}<br/>
+<a href="{{ path('blog_admin_post_edit', { 'id': post.id }) }}">Regresar</a>
+{% endblock %}

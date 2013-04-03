@@ -8,5 +8,6 @@
 
     <input type="submit" value="Guardar cambios" />
 </form>
+<a href="{{ path('blog_admin_post_show', { 'id': post.id }) }}">Vista previa</a>
 <a href="{{ path('blog_admin_post_index') }}">Volver al listado</a>
 {% endblock %}

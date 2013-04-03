@@ -26,9 +26,7 @@ class AdminPostController extends Controller
         $manager = $this->getDoctrine()->getManager();
 
         $post = new BasePost();
-        $post->setCreatedAt(new \DateTime('now'));
         $post->setPublicationDateStart(new \DateTime('now'));
-        $post->setUpdatedAt(new \DateTime('now'));
         $post->setEnabled(true);
         
         /**
@@ -51,6 +49,10 @@ class AdminPostController extends Controller
             $form->bindRequest($request);
 
             if ($form->isValid()) {
+                
+                $post->setCreatedAt(new \DateTime('now'));
+                $post->setUpdatedAt(new \DateTime('now'));
+                
                 $manager->persist($post);
                 $manager->flush();
 
@@ -86,6 +88,7 @@ class AdminPostController extends Controller
             $form->bindRequest($request);
 
             if ($form->isValid()) {
+                $post->setUpdatedAt(new \DateTime('now'));
                 $manager->persist($post);
                 $manager->flush();
 
@@ -99,10 +102,23 @@ class AdminPostController extends Controller
         ));
     }
     
-    /*
     public function showAction($id)
     {
+        //$request = $this->getRequest();
+        $manager = $this->getDoctrine()->getEntityManager();
+        $post = $manager->find('RimedBlogBundle:BasePost', $id);
         
+        if ($post == null)
+        {
+            throw new NotFoundHttpException('No existe la publicación que se quiere visualizar');
+        }
+        
+        //TODO: what is here?
+        //
+        //TODO: remember to show changes without save!!
+        
+        return $this->render('RimedBlogBundle:Admin\Post:show.html.twig', array(
+            'post' => $post
+        ));
     }
-    */
 }
