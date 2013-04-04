@@ -1,0 +1,40 @@
+{% extends "RimedBlogBundle::layout.html.twig" %}
+
+{% block title %}Listado de Categorías{% endblock %}
+
+{% block content %}
+
+<a href="{{ path('blog_admin_category_create') }}">Crear nueva categoría</a>
+<a href="{{ path('blog_admin_index') }}">Regresar a la administración</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th><input type="checkbox"></th>
+            <th>Número</th>
+            <th>Nombre</th>
+            <th>Slug</th>
+            <th>Descripción</th>
+            <th>Entradas</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for category in categories %}
+            <tr>
+                <td><input type="checkbox"></td>
+                <td align="center">{{ loop.index }}</td>
+                <td><a href="{{ path('blog_admin_category_edit', {'id': category.id}) }}">{{ category.name }}</a></td>
+                <td>{{ category.slug }}</td>
+                <td>{{ category.description }}</td>
+                <td align="center">{{ category.posts | length }}</td>
+            </tr>
+        {% else %}
+            <br>No existe ninguna categoría!!!<br><br>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="#">Eliminar seleccionadas</a>
+
+{% endblock %}

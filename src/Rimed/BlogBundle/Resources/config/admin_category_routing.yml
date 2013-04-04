@@ -4,12 +4,12 @@ blog_admin_category_index:
 
 blog_admin_category_list:
     pattern:  /list
-    defaults: { _controller: RimedBlogBundle:Admin:list }
+    defaults: { _controller: RimedBlogBundle:Admin\AdminCategory:list }
 
 blog_admin_category_create:
     pattern:  /create
-    defaults: { _controller: RimedBlogBundle:Admin:create }
+    defaults: { _controller: RimedBlogBundle:Admin\AdminCategory:create }
 
 blog_admin_category_edit:
     pattern:  /edit/{id}
-    defaults: { _controller: RimedBlogBundle:Admin:edit }
+    defaults: { _controller: RimedBlogBundle:Admin\AdminCategory:edit }

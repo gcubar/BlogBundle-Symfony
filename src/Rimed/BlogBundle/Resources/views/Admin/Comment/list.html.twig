@@ -1,0 +1,47 @@
+{% extends "RimedBlogBundle::layout.html.twig" %}
+
+{% block title %}Listado de comentarios{% endblock %}
+
+{% block content %}
+
+<a href="{{ path('blog_admin_index') }}">Regresar a la administración</a>
+
+<h3>Filtros</h3>
+
+<a href="#">Todos (X)</a>
+<a href="#">Pendientes (X)</a>
+<a href="#">Aprobados (X)</a>
+<a href="#">Spam (X)</a>
+<a href="#">Papelera (X)</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th><input type="checkbox"></th>
+            <th>Número</th>
+            <th>Autor</th>
+            <th>Estado</th>
+            <th>Comentario</th>
+            <th>Publicación</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td><input type="checkbox"></td>
+                <td align="center">{{ loop.index }}</td>
+                <td><a href="{{ path('blog_admin_comment_edit', {'id': comment.id}) }}">{{ comment.name }}</a></td>
+                <td>{{ comment.status }}</td>
+                <td>{{ comment.message }}</td>
+                <td>{{ comment.post.title }}</td>
+            </tr>
+        {% else %}
+            <br>No existe ningún comentario!!!<br><br>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="#">Eliminar seleccionadas</a>
+
+{% endblock %}

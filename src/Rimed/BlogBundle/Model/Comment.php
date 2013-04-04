@@ -20,7 +20,7 @@ abstract class Comment implements CommentInterface
 
     protected $updatedAt;
 
-    protected $status = self::STATUS_VALID;
+    protected $status = self::STATUS_MODERATE;
 
     protected $post;
 

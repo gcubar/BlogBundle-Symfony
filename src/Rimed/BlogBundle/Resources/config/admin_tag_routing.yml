@@ -4,12 +4,12 @@ blog_admin_tag_index:
 
 blog_admin_tag_list:
     pattern:  /list
-    defaults: { _controller: RimedBlogBundle:Admin:list }
+    defaults: { _controller: RimedBlogBundle:Admin\AdminTag:list }
 
 blog_admin_tag_create:
     pattern:  /create
-    defaults: { _controller: RimedBlogBundle:Admin:create }
+    defaults: { _controller: RimedBlogBundle:Admin\AdminTag:create }
 
 blog_admin_tag_edit:
     pattern:  /edit/{id}
-    defaults: { _controller: RimedBlogBundle:Admin:edit }
+    defaults: { _controller: RimedBlogBundle:Admin\AdminTag:edit }

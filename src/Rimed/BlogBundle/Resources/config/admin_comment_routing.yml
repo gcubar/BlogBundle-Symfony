@@ -4,12 +4,12 @@ blog_admin_comment_index:
 
 blog_admin_comment_list:
     pattern:  /list
-    defaults: { _controller: RimedBlogBundle:Admin:list }
+    defaults: { _controller: RimedBlogBundle:Admin\AdminComment:list }
 
 blog_admin_comment_create:
     pattern:  /create
-    defaults: { _controller: RimedBlogBundle:Admin:create }
+    defaults: { _controller: RimedBlogBundle:Admin\AdminComment:create }
 
 blog_admin_comment_edit:
     pattern:  /edit/{id}
-    defaults: { _controller: RimedBlogBundle:Admin:edit }
+    defaults: { _controller: RimedBlogBundle:Admin\AdminComment:edit }

@@ -1,0 +1,12 @@
+{% extends "RimedBlogBundle::layout.html.twig" %}
+
+{% block title %}Crear una nueva categoría{% endblock %}
+
+{% block content %}
+<form action="{{ path('blog_admin_category_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" value="Crear categoría" />
+</form>
+<a href="{{ path('blog_admin_category_index') }}">Volver al listado</a>
+{% endblock %}

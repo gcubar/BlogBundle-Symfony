@@ -1,0 +1,12 @@
+{% extends "RimedBlogBundle::layout.html.twig" %}
+
+{% block title %}Crear una nueva etiqueta{% endblock %}
+
+{% block content %}
+<form action="{{ path('blog_admin_tag_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" value="Crear etiqueta" />
+</form>
+<a href="{{ path('blog_admin_tag_index') }}">Volver al listado</a>
+{% endblock %}

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Rimed\BlogBundle\Entity\BasePost;
 use Rimed\BlogBundle\Form\PostType;
+use Rimed\BlogBundle\Model\CommentInterface;
 
 class AdminPostController extends Controller
 {
@@ -16,7 +17,7 @@ class AdminPostController extends Controller
         $container = $manager->getRepository('RimedBlogBundle:BasePost')->findAll();
         
         return $this->render('RimedBlogBundle:Admin\Post:list.html.twig', array(
-            'publicaciones' => $container
+            'posts' => $container
         ));
     }
     
@@ -29,15 +30,7 @@ class AdminPostController extends Controller
         $post->setPublicationDateStart(new \DateTime('now'));
         $post->setEnabled(true);
         
-        /**
-         * Estado por defecto de los comentarios:
-         * 
-         * valores:
-         *      0 : moderado
-         *      1 : inválido
-         *      2 : válido
-         */
-        $post->setCommentsDefaultStatus(0);
+        $post->setCommentsDefaultStatus(CommentInterface::STATUS_MODERATE);
         
         //TODO: pensar cómo inicializar este valor
         //$post->setCommentsCloseAt(new \DateTime('now')); 

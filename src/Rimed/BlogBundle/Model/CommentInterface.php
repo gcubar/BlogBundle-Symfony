@@ -7,6 +7,8 @@ interface CommentInterface
     const STATUS_INVALID  = 0;
     const STATUS_VALID    = 1;
     const STATUS_MODERATE = 2;
+    const STATUS_GARBAGE  = 3;
+    const STATUS_SPAM     = 4;
 
     public function getId();
 

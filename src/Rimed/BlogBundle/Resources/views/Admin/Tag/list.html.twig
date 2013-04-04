@@ -1,0 +1,38 @@
+{% extends "RimedBlogBundle::layout.html.twig" %}
+
+{% block title %}Listado de Etiquetas{% endblock %}
+
+{% block content %}
+
+<a href="{{ path('blog_admin_tag_create') }}">Crear nueva Etiqueta</a>
+<a href="{{ path('blog_admin_index') }}">Regresar a la administración</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th><input type="checkbox"></th>
+            <th>Número</th>
+            <th>Nombre</th>
+            <th>Slug</th>
+            <th>Entradas</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for tag in tags %}
+            <tr>
+                <td><input type="checkbox"></td>
+                <td align="center">{{ loop.index }}</td>
+                <td><a href="{{ path('blog_admin_tag_edit', {'id': tag.id}) }}">{{ tag.name }}</a></td>
+                <td>{{ tag.slug }}</td>
+                <td align="center">{{ tag.posts | length }}</td>
+            </tr>
+        {% else %}
+            <br>No existe ninguna etiqueta!!!<br><br>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="#">Eliminar seleccionadas</a>
+
+{% endblock %}

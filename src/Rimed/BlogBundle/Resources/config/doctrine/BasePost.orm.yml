@@ -61,7 +61,6 @@ Rimed\BlogBundle\Entity\BasePost:
             column: comments_default_status
             type: integer
             nullable: true
-            default: 0
         commentsCount:
             column: comments_count
             type: integer
