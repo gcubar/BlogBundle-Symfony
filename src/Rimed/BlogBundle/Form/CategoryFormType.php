@@ -5,11 +5,11 @@ namespace Rimed\BlogBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class CategoryType extends AbstractType
+class CategoryFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('enabled', 'checkbox', array('label' => 'Habilitado:'));
+        $builder->add('enabled', 'checkbox', array('label' => 'Habilitado:', 'required' => false));
         $builder->add('name', 'text', array('label' => 'Nombre:'));
         $builder->add('description', 'text', array('label' => 'Descripción:'));
     }
@@ -23,6 +23,6 @@ class CategoryType extends AbstractType
 
     public function getName() 
     {
-        return "Category";
+        return "CategoryFormType";
     }
 }

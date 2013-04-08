@@ -5,7 +5,7 @@ namespace Rimed\BlogBundle\Controller\Admin;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Rimed\BlogBundle\Entity\BaseCategory;
-use Rimed\BlogBundle\Form\CategoryType;
+use Rimed\BlogBundle\Form\CategoryFormType;
 
 class AdminCategoryController extends Controller
 {
@@ -28,7 +28,7 @@ class AdminCategoryController extends Controller
         $category = new BaseCategory();
         $category->setEnabled(true);
         
-        $form = $this->get('form.factory')->create(new CategoryType());
+        $form = $this->get('form.factory')->create(new CategoryFormType());
         $form->setData($category);
 
         if ($request->getMethod() == 'POST') {
@@ -66,7 +66,7 @@ class AdminCategoryController extends Controller
             throw new NotFoundHttpException('No existe la categoría que se quiere modificar');
         }
 
-        $form = $this->get('form.factory')->create(new CategoryType());
+        $form = $this->get('form.factory')->create(new CategoryFormType());
         $form->setData($category);
 
         if ($request->getMethod() == 'POST')

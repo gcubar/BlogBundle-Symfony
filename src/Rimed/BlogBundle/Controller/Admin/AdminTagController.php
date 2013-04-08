@@ -5,7 +5,7 @@ namespace Rimed\BlogBundle\Controller\Admin;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Rimed\BlogBundle\Entity\BaseTag;
-use Rimed\BlogBundle\Form\TagType;
+use Rimed\BlogBundle\Form\TagFormType;
 
 class AdminTagController extends Controller
 {
@@ -28,7 +28,7 @@ class AdminTagController extends Controller
         $tag = new BaseTag();
         $tag->setEnabled(true);
         
-        $form = $this->get('form.factory')->create(new TagType());
+        $form = $this->get('form.factory')->create(new TagFormType());
         $form->setData($tag);
 
         if ($request->getMethod() == 'POST') {
@@ -66,7 +66,7 @@ class AdminTagController extends Controller
             throw new NotFoundHttpException('No existe la Etiqueta que se quiere modificar');
         }
 
-        $form = $this->get('form.factory')->create(new TagType());
+        $form = $this->get('form.factory')->create(new TagFormType());
         $form->setData($tag);
 
         if ($request->getMethod() == 'POST')
@@ -86,5 +86,17 @@ class AdminTagController extends Controller
             'form' => $form->createView(),
             'tag' => $tag
         ));
+    }
+    
+    public function deleteAction($id)
+    {
+        $request = $this->getRequest();
+        $manager = $this->getDoctrine()->getEntityManager();
+        $tag = $manager->find('RimedBlogBundle:BaseTag', $id);
+        
+        if ($tag == null)
+        {
+            throw new NotFoundHttpException('No existe la Etiqueta que se quiere eliminar');
+        }
     }
 }

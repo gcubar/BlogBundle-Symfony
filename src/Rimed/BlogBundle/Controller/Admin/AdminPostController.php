@@ -5,7 +5,7 @@ namespace Rimed\BlogBundle\Controller\Admin;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Rimed\BlogBundle\Entity\BasePost;
-use Rimed\BlogBundle\Form\PostType;
+use Rimed\BlogBundle\Form\PostFormType;
 use Rimed\BlogBundle\Model\CommentInterface;
 
 class AdminPostController extends Controller
@@ -35,7 +35,7 @@ class AdminPostController extends Controller
         //TODO: pensar cómo inicializar este valor
         //$post->setCommentsCloseAt(new \DateTime('now')); 
 
-        $form = $this->get('form.factory')->create(new PostType());
+        $form = $this->get('form.factory')->create(new PostFormType());
         $form->setData($post);
 
         if ($request->getMethod() == 'POST') {
@@ -73,19 +73,23 @@ class AdminPostController extends Controller
             throw new NotFoundHttpException('No existe la publicación que se quiere modificar');
         }
 
-        $form = $this->get('form.factory')->create(new PostType());
+        $form = $this->get('form.factory')->create(new PostFormType());
         $form->setData($post);
 
         if ($request->getMethod() == 'POST')
         {
             $form->bindRequest($request);
 
+            //ladybug_dump_die($post);
+                
             if ($form->isValid()) {
                 $post->setUpdatedAt(new \DateTime('now'));
                 $manager->persist($post);
                 $manager->flush();
 
-                return $this->redirect($this->generateUrl('blog_admin_post_list'));
+                return $this->redirect($this->generateUrl('blog_admin_post_edit', array(
+                    'id' => $post->getId()
+                )));
             }
         }
 

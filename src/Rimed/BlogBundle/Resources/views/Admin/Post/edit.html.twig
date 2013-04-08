@@ -4,7 +4,14 @@
 
 {% block content %}
 <form action="{{ path('blog_admin_post_edit', { 'id': post.id }) }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+    
+    {{ form_row(form.enabled) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.categories) }}
+    
+    {{ form_rest(form) }}
+    
+    {# {{ form_widget(form) }} #}
 
     <input type="submit" value="Guardar cambios" />
 </form>

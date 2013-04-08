@@ -5,14 +5,30 @@ namespace Rimed\BlogBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class PostType extends AbstractType
+class PostFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('enabled', 'checkbox', array('label' => 'Habilitado:'));
+        $builder->add('enabled', 'checkbox', array('label' => 'Habilitado:', 'required' => false));
         $builder->add('title', 'text', array('label' => 'Título:'));
-        //TODO:
-        //$builder->add('categories');
+        
+        $builder->add('categories', 'entity', array(
+            'label' => 'Categorías:',
+            'class' => 'RimedBlogBundle:BaseCategory',
+            'property' => 'name',
+            'multiple' => true,
+            'expanded' => true
+        ));
+        
+        
+        /*
+        $builder->add('categories', 'collection', array(
+            'label' => 'Categorías:',
+            'class' => 'RimedBlogBundle:BaseCategory',
+            'property' => 'name',
+        ));
+        */
+        
         $builder->add('abstract', 'textarea', array('label' => 'Resumen:'));
         $builder->add('content', 'textarea', array('label' => 'Contenido:'));
         //TODO:
@@ -44,6 +60,6 @@ class PostType extends AbstractType
 
     public function getName() 
     {
-        return "Post";
+        return "PostFormType";
     }
 }

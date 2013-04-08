@@ -13,3 +13,7 @@ blog_admin_tag_create:
 blog_admin_tag_edit:
     pattern:  /edit/{id}
     defaults: { _controller: RimedBlogBundle:Admin\AdminTag:edit }
+
+blog_admin_tag_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: RimedBlogBundle:Admin\AdminTag:delete }

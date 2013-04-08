@@ -15,6 +15,7 @@
             <th>Nombre</th>
             <th>Slug</th>
             <th>Entradas</th>
+            <th>X</th>
         </tr>
     </thead>
 
@@ -26,6 +27,7 @@
                 <td><a href="{{ path('blog_admin_tag_edit', {'id': tag.id}) }}">{{ tag.name }}</a></td>
                 <td>{{ tag.slug }}</td>
                 <td align="center">{{ tag.posts | length }}</td>
+                <td><a href="#">X</a></td>
             </tr>
         {% else %}
             <br>No existe ninguna etiqueta!!!<br><br>

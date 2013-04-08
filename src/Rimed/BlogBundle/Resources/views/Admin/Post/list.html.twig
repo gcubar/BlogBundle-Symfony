@@ -18,6 +18,7 @@
             <th>Comentarios activos</th>
             <th>Cantidad de comentarios</th>
             <th>Fecha de publicación</th>
+            <th>X</th>
         </tr>
     </thead>
 
@@ -32,6 +33,7 @@
                 <td align="center">{{ boolean[post.commentsEnabled] }}</td>
                 <td align="center">{{ post.commentsCount }}</td>
                 <td align="center">{{ post.publicationDateStart | date('d/m/Y') }}</td>
+                <td><a href="#">X</a></td>
             </tr>
         {% else %}
             <br>No existe ninguna publicación!!!<br><br>
